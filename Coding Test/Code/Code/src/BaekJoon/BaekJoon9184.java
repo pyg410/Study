@@ -27,7 +27,6 @@ public class BaekJoon9184 {
                 break;
             }
 
-
             sb.append("w(" + a + ", " + b + ", " + c + ") = ").append(w(a ,b ,c)).append('\n');
 
         }
