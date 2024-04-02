@@ -8,7 +8,6 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BaekJoon14502 {
-    static boolean[][] visited;
     static int[][] graph;
     static int result = Integer.MIN_VALUE;
     static int[] dx = {0,0,-1,1};//상하좌우
