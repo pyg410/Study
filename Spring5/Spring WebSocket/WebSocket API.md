@@ -195,3 +195,39 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
 }
 ```
+
+## Allow Origins
+
+Spring Framework 4.1.5 기준, WebSocket과 SockJS기본 동작은 무조건 same-origin요청만 된다.(기본동작 한정)
+
+물론 all or 특정 origin리스트로도 설정 가능하다.
+
+세 가지 가능한 동작 방식이 있다.
+
+1. same-origin 요청만 허용(default) : 이 모드에서 SockJS가 활성화 되었을 때 Iframe HTTP 응답 헤더인 X-Frame-Options가 SAMEORIGIN으로 설정되고, 요청의 출저를 확인할 수 없어서 JSONP 전송이 비활성화 된다. 따라서 이 모드의 경우 IE6, IE7은 지원되지 않는다.
+2. Specified origins 허용 : 각 origin 출저는 `http://` 또는 `https://`로 시작해야한다. 이 모드에서 SockJS가 활성화되면 IFrame 전송은 비활성화 된다.
+3. 모든 출처 허용 : Origin값을 `*`로 설정하면 된다. 모든 전송이 사용 가능하다.
+
+아래는 예제 코드이다.
+
+```java
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
+import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+
+@Configuration
+@EnableWebSocket
+public class WebSocketConfig implements WebSocketConfigurer {
+
+	@Override
+	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+		registry.addHandler(myHandler(),  "/myHandler").setAllowedOrigins("https://mydomain.com"); // Handler Setting & Origin Setting
+	}
+
+	@Bean
+	public WebSocketHandler myHandler() { // Custom Handler
+		return new MyHandler();
+	}
+
+}
+```
