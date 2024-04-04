@@ -124,5 +124,4 @@ public class WebSocketConfig implements WebSocketConfigurer {
 </beans>
 ```
 
-https://docs.spring.io/spring-framework/reference/web/websocket/server.html
-여기 이후부터 공부하면 됨.
+`DefaultHandshakeHandler
