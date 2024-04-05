@@ -94,5 +94,3 @@ WebSocket은 웹 페이지를 동적 혹은 상호작용하게 만들 수 있다
 
 즉, 방화벽 안의 application에 WebSocket을 사용하는게 public facing application보다 더 좋은 결정이다.
 
-
-## WebSocketHandler

@@ -77,7 +77,7 @@ WebSocketHandler를 직접 혹은 간접적으로 사용할 때, (eg,. STOMP Mes
 
 간단하게 HTTP Protocol로 들어오는 모든 요청을 가장 앞단에서 먼저 받아 적합한 Controller로 매핑해주는 Front Controller 역할을 한다.
 
-Client -> HTTP Request -> Tomcat(Servlet Container) -> Dispatcher Servlet -> handler adaptor ->  Controller -> Business Logig -> Controller Return -> handler Adaptor -> HTTP Response -> Client
+Client -> HTTP Request -> Tomcat(Servlet Container) -> Dispatcher Servlet -> handler adaptor ->  Controller -> Business Logic -> Controller Return -> handler Adaptor -> HTTP Response -> Client
 
 물론 Dispatcher Servlet 앞에 Filter가 올 수도 있고, 뒤에 Interceptor가 올 수도 있다.
 

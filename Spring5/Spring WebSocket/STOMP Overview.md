@@ -25,9 +25,9 @@ Body^@
 
 Spring STOMP를 사용하는 경우 Spring WebSocket 어플리케이션은 클라이언트에 대한 STOMP 브로커 역할을 한다.
 
-메세지는 `@Controller` 메세지 핸들링 메서드 또는 구독 추적이나 구독한 사용자에게 메시지를 broadcast하는 간단한 In-memory broker 로 라우팅됩니다.
+메세지는 `@Controller` 메세지 핸들링 메서드 또는 구독 추적이나 구독한 사용자에게 메시지를 broadcast하는 간단한 In-memory broker 로 라우된다.
 
-메세지의 broadcast를 위해 전용 STOMP 브로커를 구성할 수도 있습니다.(ex,. RabbitMQ, ActiveMQ 등)
+메세지의 broadcast를 위해 전용 STOMP 브로커를 구성할 수도 있다.(ex,. RabbitMQ, ActiveMQ 등)
 
 이 경우 Spring은 브로커에 대한 TCP 연결을 유지하고, 브로커에 메시지를 중계하고 브로커에 있는 메세지를 연결된 WebSocket 클라이언트들에게 전달한다.
 
@@ -58,7 +58,7 @@ content-length:44
 
 실행 후에, 서버는 트레이드 확인 메세지와 세부사항을 클라이언트에 broadcast한다.
 
-`destination`의 의미는 STOMP spec에서 의도적으로 불투명하게 되어있다.
+`destination`의 의미는 STOMP spec에서 의도적으로 가려놨다.
 
 `destination`은 String이 될 수도 있고, 다른 것도 될 수 있다.
 지원되는 타입 및 특정한 구문의 의미는 STOMP 서버가 지정한다.
