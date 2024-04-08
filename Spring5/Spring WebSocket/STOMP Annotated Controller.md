@@ -88,3 +88,29 @@ stompSession
 ```
 server side 옵션의 경우 `ExecutorChannelInterceptor`을 `brokerChannel`에 등록하고, 구독 정보를 포함한 메세지가 처리된 후 호출되는 `afterMessageHandled`메서드를 구현하는 방법이 있다.
 
+## `@MessageExceptionHandler`
+
+application은 `@MessageExceptionHandler` 어노테이션을 사용해서 `@MessageMapping`메서드에서 발생하는 exception을 처리할 수 있다.
+
+Exception instance에 직접적으로 접근하고 싶다면 method argument를 통해Exception을 선언하면 된다.
+아래의 예제는 Method argument를 통해 Exception을 선언하는 예제이다.
+
+```java
+@Controller
+public class MyController {
+
+	// ...
+
+	@MessageExceptionHandler
+	public ApplicationError handleException(MyException exception) {
+		// ...
+		return appError;
+	}
+}
+```
+
+`@MessageExceptionHandler` 어노테이션은 유연한 method 시그니처를 지원한다. 그리고, `@MessageMapping`어노테이션과 같은 return value & argument type을 지원한다.
+
+일반적으로 `@MessageExceptionhandler`어노테이션은 `@Controller`클래스 혹은 클래스 계층구조 내에서 적용된다.
+이러한 것보다 더욱 글로벌하게 적용하려면 `@ControllerAdvice`로 표시된 클래스에서 선언하면 된다.
+이는 Spring MVC에서 제공되는 것과 비슷하다.
