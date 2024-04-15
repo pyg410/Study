@@ -56,8 +56,6 @@ public class BaekJoon1004 {
         }
 
     }
-
-
     private static double getDistance(int x, int y, int x1, int y1){
         return Math.sqrt(Math.pow(x-x1, 2) + Math.pow(y-y1, 2));
     }
