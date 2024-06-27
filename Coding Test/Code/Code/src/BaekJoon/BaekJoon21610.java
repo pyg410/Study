@@ -33,12 +33,11 @@ public class BaekJoon21610 {
     private static void solution() {
         // 첫번째 구름 생성(주의할 점 index는 1부터 시작한다.)
         createFirstCloud();
-        // 비가 온 배스킷을 저장하는 List생성
-
-
 
         for(int i =0; i<m; i++){
+            // 비가 온 배스킷을 저장하는 List생성
             List<RainyBasket> rainyBasketList = new ArrayList<>();
+
             // 구름 이동
             moveCloud(i);
 
@@ -60,9 +59,6 @@ public class BaekJoon21610 {
                 totalWater = basketWaterSum();
             }
         }
-
-
-
 
         // 바구니에 있는 물의 양 합 출력
         System.out.println(totalWater);
@@ -174,7 +170,6 @@ public class BaekJoon21610 {
                 }
             }
         }
-
 
         cloud = copyCloud;
     }
